@@ -1,3 +1,1 @@
-# Demo 
-
-This is Some description!
+This is a hangman Game, which coded in C++
