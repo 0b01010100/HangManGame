@@ -1,4 +1,5 @@
 #include "hangman_funcs.h"
+//Greets the player 
 void Greet()
 {
 	std::cout << "+ = = = = = = = = = = = = = = = = = = = = = = = = = = = + \n\n";
@@ -7,6 +8,8 @@ void Greet()
 	std::cout << "Good Luck\n";
 	std::cout << "\n+ = = = = = = = = = = = = = = = = = = = = = = = = = = = + \n\n";
 }
+//Makes underscores based  off of the amount of letters in the code word. 
+//This will be useful for helping the player of the game know how many more letters to guess until s/he got the word correct.
 void GetWordSize(std::string& MysteryWord, std::string& WordAnswer)
 {
     for(int i = 0; i< MysteryWord.size(); i++)
@@ -14,6 +17,7 @@ void GetWordSize(std::string& MysteryWord, std::string& WordAnswer)
 		WordAnswer += "_";
 	}
 }
+//Displays the man who might be hung
 void DisplayMan(int misses)
 {
     switch (misses)
@@ -101,6 +105,8 @@ void DisplayMan(int misses)
         break;
     }
 }
+//Shows the players progress in guessing the code word
+//Stats: Correct Answers, Worng Answer.
 void DisplayStatus(std::string& Answer, std::vector<char>& Incorrect) {
 	//Displays Incorrect Letters
 	std::cout << "Incorrect Letters: " << std::endl;
@@ -124,6 +130,7 @@ void DisplayStatus(std::string& Answer, std::vector<char>& Incorrect) {
 	}
 	std::cout << "\n";
 }
+//Checks to see if the letter that the player input macthes any letters in the CodeWord
 void CheckStringAnswer(char& input, std::string& Answer, std::string& CodeWord, std::vector<char>& Incorrect, int& CorrectTries)
 {
         bool WasCorrect = 0;
@@ -146,19 +153,7 @@ void CheckStringAnswer(char& input, std::string& Answer, std::string& CodeWord, 
             std::cout << "\t\tSorry, but that was Incorrect"<<std::endl<<std::endl;
         }
 }
-//bool operator==(std::string& inputArg0, std::string& inputArg1)
-//{
-//    bool d = true; 
-//    for (int i = 0; i < inputArg1.size(); i++) {
-//        
-//        if(inputArg0[i] != inputArg1[i])
-//        {
-//            d = false;
-//            break;
-//        }
-//    }
-//    return d;
-//}
+//Is called when the when there are to many worng guess or when the person guesed everything correctly
 void EndGame(std::string& Codeword, std::string& Answer)
 {
     if(Answer == Codeword)
