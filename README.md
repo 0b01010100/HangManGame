@@ -1,1 +1,1 @@
-This is a hangman Game, which coded in C++
+This is a hangman Game, which is coded in C++.
